@@ -29,7 +29,6 @@ COPY --from=builder /app/package.json .
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/src ./src
 COPY --from=builder /app/next.config.mjs .
-COPY --from=builder /app/public ./public
 
 # Expose port
 EXPOSE 3000
