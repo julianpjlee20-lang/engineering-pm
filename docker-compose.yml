@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  pocketbase:
+    image: pocketbase/pocketbase:latest
+    container_name: engineering-pb
+    ports:
+      - "8090:8090"
+    volumes:
+      - pb_data:/pb_data
+    command: serve
+
+  frontend:
+    build: .
+    container_name: engineering-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_PB_URL=http://45.32.100.142:8090
+    depends_on:
+      - pocketbase
+
+volumes:
+  pb_data:

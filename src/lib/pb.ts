@@ -1,7 +1,7 @@
 import PocketBase from 'pocketbase';
 
 // PocketBase URL - 改成你的服務器地址
-export const pb = new PocketBase('http://45.32.100.142:8090');
+export const pb = new PocketBase(process.env.NEXT_PUBLIC_PB_URL || 'http://localhost:8090');
 
 // Types
 export interface Project {
