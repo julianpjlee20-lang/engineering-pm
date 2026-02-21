@@ -325,7 +325,7 @@ export default function Home() {
         status: task.status,
         assignee: task.assignee || '',
       });
-      setTasks([...tasks, newTask as Task]);
+      setTasks([...tasks, newTask as unknown as Task]);
       setShowAddModal(false);
     } catch (error) {
       console.error('Error creating task:', error);
